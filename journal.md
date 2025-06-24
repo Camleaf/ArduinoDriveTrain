@@ -109,7 +109,7 @@ Unfortunately, this module made it so that screws had only a very limited space 
 
 #### Frame raise
 
-Because of that, I decided to raise part of the frame. This sketch details what is going to be raised (blue), and what is part of the motor apparatus (grey). I then extruded it to add space for the screws. Raised, pictured right
+Because of that, I decided to raise part of the frame. This sketch details what is going to be raised (blue), and what is part of the motor apparatus (grey). I then extruded it to add space for the screws. Raised, pictured right, sketch, pictured left.
 
 <img src="./JournalImg/Raise_base_sketch.png" width="300">
 <img src="./JournalImg/Raise_base_cad.png" width="300">
