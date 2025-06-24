@@ -4,7 +4,7 @@ author: "Camleaf"
 description: "A Swerve/Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 8h**
+**Total Time Spent: 15h**
 
 # June 8th: Did some research on ordered parts
 
@@ -79,3 +79,43 @@ Ok, after a few hours, I came up with this preliminary design:
 It has a few issues, for example the possibility of friction between the base and the module, and the fact that if this module does a full spin, then the wires will get caught. I think that these issues can be resolved in time, but for tonight I've done a lot of work and am tired.
 
 **Total time spent: 6h**
+
+# June 10th: Cadding away
+A tentative 3D print of the base (pictured left), made me realize that I forgot a connection mechanism between the two halves of the base ( two halves because my 3D printer isn't big enough), so I went and added it in CAD (pictured right)
+
+<img src="./JournalImg/BodyTestPrint.png" width="300">
+<img src="./JournalImg/body_connector_cad.png" width="300">
+
+#### Wheel rotator
+
+I finished the initial design of the wheel rotator module, and I created a raised platform for the rest of the car
+
+
+For the wheel rotator module, I added a connector piece to connect the servo and the rest of the module
+
+<img src="./JournalImg/Keycaps_design.png" width="450">
+
+The plug shape of the connector should be a sturdy fit when rotating
+
+Then, I created this piece to attach the servo to the base frame. I then did a 3D print of it and I haven't been able to bend it easily, so I think it is a solid design.
+
+<img src="./JournalImg/Servo_connector.png" width="450">
+
+
+One struggle i had with this was finding an appropriate JX PDI-6221MG servo model to base my designs off of, but luckily grabcad had one [here](https://grabcad.com/library/jx-pdi-6221mg-servo-180-1). I checked its measurements against those on the manufacturers website and the measurements lined up.
+
+
+Unfortunately, this module made it so that screws had only a very limited space to be put, lest they interrupt the wheel/motors rotation path.
+
+#### Frame raise
+
+Because of that, I decided to raise part of the frame. This sketch details what is going to be raised (blue), and what is part of the motor apparatus (grey). I then extruded it to add space for the screws. Raised, pictured right
+
+<img src="./JournalImg/Raise_base_sketch.png" width="300">
+<img src="./JournalImg/Raise_base_cad.png" width="300">
+
+The raised section on the right side is a separate component for 3D printing purposes.
+
+
+**Total time spent: 7h**
+<br> ^ It's  summer, alright, don't judge the insane hours
