@@ -1,10 +1,12 @@
 ---
 title: "Tri-wheel Crab Drive"
 author: "Camleaf"
-description: "A Swerve/Crab drive rc car, fully 3D printed frame"
+description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
 **Total Time Spent: 15h**
+
+The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
 # June 8th: Did some research on ordered parts
 
@@ -57,7 +59,7 @@ I created a new document, and made sketch of equilateral triangle with 250 edge 
 <img src="./JournalImg/car_frame_sketch.png" width="300">
 <img src="./JournalImg/car_frame_body.png" width="300">
 
-The wheel modules are equidistant from the center and their respective corners. They should be in a close enough spot to the edge to keep stability and to allow space for other components
+The wheel modules are equidistant from the center and their respective corners, and are on the medians. They should be in a close enough spot to the edge to keep stability and to allow space for other components
 
 <br>
 <br>
@@ -99,7 +101,8 @@ The plug shape of the connector should be a sturdy fit when rotating
 
 Then, I created this piece to attach the servo to the base frame. I then did a 3D print of it and I haven't been able to bend it easily, so I think it is a solid design.
 
-<img src="./JournalImg/Servo_connector.png" width="450">
+<img src="./JournalImg/Servo_connector.png" width="360">
+<img src="./JournalImg/Servo_connector_proto.png" width="300">
 
 
 One struggle i had with this was finding an appropriate JX PDI-6221MG servo model to base my designs off of, but luckily grabcad had one [here](https://grabcad.com/library/jx-pdi-6221mg-servo-180-1). I checked its measurements against those on the manufacturers website and the measurements lined up.
@@ -115,7 +118,31 @@ Because of that, I decided to raise part of the frame. This sketch details what 
 <img src="./JournalImg/Raise_base_cad.png" width="300">
 
 The raised section on the right side is a separate component for 3D printing purposes.
+It should slide in to the main section with no screws (tolerance of 0.1mm).
 
 
 **Total time spent: 7h**
 <br> ^ It's  summer, alright, don't judge the insane hours
+
+
+# June 11th: Working on the raised section
+
+I found a severe issue with the raised section: It doesn't fix the issue I had:
+
+I thought that I would be able to put the Arduino on the top half, and the motor drivers (BTS7960) /batteries on the bottom half, but as it turns out, the motor drivers interfere with the pins which attach the frame together, so I can't place them on the bottom, this means thatI am back where I started in terms of placement. (left)
+
+I fixed it by expanding the center section out on the sides, and the piece should still fit onto my 3D printer. (right)
+
+<img src="./JournalImg/Components_no_fit_raised.png" width="300">
+<img src="./JournalImg/Componenets_fit_raised.png" width="300">
+
+
+<br>
+<br>
+
+#### Updating goals
+
+I still think that full field-centric holonomic motion for this bot would be really cool, I would need a magnometer, which while inside my budget, has a level of complexity involved in the calibration/operation that I can't seem to wrap my head around. Also, this saves me from having to CAD in another raised platform to minimize hard iron distortions. I will from here scrap my idea of having multiple drive modes and focus solely on Crab drive, where you can move in all directions but it is robot-centric.
+
+With that, however, I believe that this part of the CAD process done. Now I can move on to circuit diagrams and programming.
+
