@@ -1,6 +1,6 @@
 I have 3D printing capabilities in-house
 
-Total: $136.15
+Total: $139.5
 
 Ok so thats done now for designing
 
@@ -24,3 +24,8 @@ USB 5v power bank (to power arduino): $17.45<br>
 
 4 (2x2) bts7960 motor driver: $6.08
 https://www.aliexpress.com/item/1005006795884033.html?spm=a2g0o.productlist.main.3.256b2764N7jgTX&algo_pvid=03f217ca-8868-4b76-899b-a13196d03889&pdp_ext_f=%7B%22order%22%3A%2221%22%2C%22eval%22%3A%221%22%7D&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+
+Joysticks: $3.42
+https://www.aliexpress.com/item/1005009059629265.html?spm=a2g0o.productlist.main.37.7123pVMTpVMTSu&algo_pvid=826550db-1c96-4d1c-831c-5af7a8b5ed1a&pdp_ext_f=%7B%22order%22%3A%225%22%2C%22eval%22%3A%221%22%7D&utparam-url=scene%3Asearch%7Cquery_from%3A
+

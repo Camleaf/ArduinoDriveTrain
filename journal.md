@@ -113,7 +113,7 @@ Unfortunately, this module made it so that screws had only a very limited space 
 Because of that, I decided to raise part of the frame. This sketch details what is going to be raised (blue), and what is part of the motor apparatus (grey). I then extruded it to add space for the screws. Raised, pictured right, sketch, pictured left.
 
 <img src="./JournalImg/Raise_base_sketch.png" width="300">
-<img src="./JournalImg/Raise_base_cad.png" width="300">
+<img src="./JournalImg/raise_base_cad.png" width="300">
 
 The raised section on the right side is a separate component for 3D printing purposes.
 It should slide in to the main section with no screws (tolerance of 0.1mm).
@@ -163,7 +163,7 @@ Also, I couldn't find the models of battery packs I am planning on using, so I j
 <img src="./Wiring/Circuit diagram_bb.png" width="450">
 <img src="./Wiring/Circuit diagram_schem.png" width="450">
 
-The wiring went mostly without a hitch, and I connected everything and then verified the connections to make sure nothign was off. The only thing that bothers me is the fact that on the built-in Arduino Due module, the usb-b mini ports and the SPI pins weren't added into the module, so I couldn't plug those pins in. However, I left a note to remind myself and any potential readers, so It should work just fine.
+The wiring went mostly without a hitch, and I connected everything and then verified the connections to make sure nothing was off. The only thing that bothers me is the fact that on the built-in Arduino Due module, the usb-b mini ports and the SPI pins weren't added into the module, so I couldn't plug those pins in. However, I left a note to remind myself and any potential readers, so It should work just fine.
 
 I honestly wish that something went wrong during this process, or that is was more complicated, because I think I spent the last four to five hours mindlessly connecting everything.
 
@@ -171,3 +171,9 @@ I think that tomorrow I should start working on the controller.
 I'm getting the feeling that the planning stages (before I get the grant) of this project will be over a lot faster than I'm expecting because of the insane hours I'm putting in.
 
 **Total time spent: 9h**
+
+# June 26th: The controller
+
+I started the measurements for my controller around an arduino mega, because it is a good size to start to model something ergonomic around
+
+<img src="./JournalImg/Controller_Cad_Start.png" width="300">
