@@ -4,7 +4,7 @@ author: "Camleaf"
 description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 24h**
+**Total Time Spent: 26.5h**
 
 The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
@@ -199,3 +199,4 @@ The circuits for this were relatively easy compared to the car, as all I had to 
 <img src="./Wiring/Controller diagram_schem.png" width="300
 ">
 
+**Total time spent: 2.5h**
