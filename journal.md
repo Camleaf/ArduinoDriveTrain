@@ -144,6 +144,9 @@ I still think that full field-centric holonomic motion for this bot would be rea
 
 With that, however, I believe that this part of the CAD process done. Now I can move on to circuit diagrams and programming.
 
+<img src="./JournalImg/Car_CAD_expanded.png" width="500">
+
+
  I will need to go back to 3D modelling for the controller, but I think I'll take this one step at a time
 
 
