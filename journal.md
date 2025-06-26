@@ -145,7 +145,7 @@ I still think that full field-centric holonomic motion for this bot would be rea
 With that, however, I believe that this part of the CAD process done. Now I can move on to circuit diagrams and programming.
 
 <img src="./JournalImg/Car_CAD_expanded.png" width="500">
-
+<img src="./JournalImg/car_CAD.png" width="500">
 
  I will need to go back to 3D modelling for the controller, but I think I'll take this one step at a time
 
@@ -202,4 +202,7 @@ The circuits for this were relatively easy compared to the car, as all I had to 
 <img src="./Wiring/Controller diagram_schem.png" width="300
 ">
 
-**Total time spent: 2.5h**
+
+After this, I wrote the Readme.md and compiled all the external items I need into a BOM.csv, which took about an hour and a half
+
+**Total time spent: 4h**
