@@ -160,8 +160,8 @@ Unfortunately given that the BTS7960 isn't built in to Fritzing, I had to look f
 
 Also, I couldn't find the models of battery packs I am planning on using, so I just put placeholder 18650s in their place, seeing as this circuit wasn't going to be run anyways
 
-<img src="./CAD/Fritzing/Circuit diagram_bb.png" width="450">
-<img src="./CAD/Fritzing/Circuit diagram_schem.png" width="450">
+<img src="./Wiring/Circuit diagram_bb.png" width="450">
+<img src="./Wiring/Circuit diagram_schem.png" width="450">
 
 The wiring went mostly without a hitch, and I connected everything and then verified the connections to make sure nothign was off. The only thing that bothers me is the fact that on the built-in Arduino Due module, the usb-b mini ports and the SPI pins weren't added into the module, so I couldn't plug those pins in. However, I left a note to remind myself and any potential readers, so It should work just fine.
 
