@@ -174,6 +174,20 @@ I'm getting the feeling that the planning stages (before I get the grant) of thi
 
 # June 26th: The controller
 
+#### Cad
+
 I started the measurements for my controller around an arduino mega, because it is a good size to start to model something ergonomic around
 
 <img src="./JournalImg/Controller_Cad_Start.png" width="300">
+<img src="./JournalImg/Controller_port.png" width="300">
+
+I think It turned out well, and I added a little IO on the controller to connect it to my computer, removing the need for a battery for this.
+
+From there, I designed a little top hatch which fits perfectly onto the base, and can hold some HW-504 joysticks. I also left a bit of space for a rf24 radio module
+
+<img src="./JournalImg/Controller_CAD_done.png" width="300">
+
+The CAD for the controller was extremely simple compared to that of the car. I'm sure I will eventually make changes once I feel it in my hands, but at the moment I'm out of printer filament so I will need to get some more before I can hands-on test.
+
+
+#### Circuit
