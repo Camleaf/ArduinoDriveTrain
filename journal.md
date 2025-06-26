@@ -30,7 +30,7 @@ It is very preliminary so things probably will change
 
 #### Budget update info
 At the start, I updated my budget, as I realized that the 150 budget was in USD instead of CAD. I also moved a lot of my items to AliExpress because it is a lot cheaper
-As a result of this I was also able to fit an Arduino Due on the budget, with an additional $30 left (Needed because I need the floating point operations to be fast, also I am comfortable with arduino).
+As a result of this I was also able to fit an Arduino Mega on the budget, with an additional $30 left (Needed because I need the floating point operations to be fast, also I am comfortable with arduino).
 <br>
 <br>
 #### Modify standard TT wheel design
@@ -155,7 +155,7 @@ With that, however, I believe that this part of the CAD process done. Now I can 
 The process of creating the circuit for what I need shouldn't be too difficult. All I need to do should be:
 
 - Boot up Fritzing ( The circuit software I'm using, I will ignore the PCB section as I am not creating any)
-- Add the Arduino due, NRF24L01 (which I'm using for radio), 3 BTS7960 motor drivers, 3 servos, and 3 dc motors (I can use generic ones here because the inputs are the same)
+- Add the Arduino Due, NRF24L01 (which I'm using for radio), 3 BTS7960 motor drivers, 3 servos, and 3 dc motors (I can use generic ones here because the inputs are the same)
 - Connect all the wires to their appropraite handlers: 5v + arduino handles logic, 7.4V supply handles power
 
 
@@ -204,5 +204,15 @@ The circuits for this were relatively easy compared to the car, as all I had to 
 
 
 After this, I wrote the Readme.md and compiled all the external items I need into a BOM.csv, which took about an hour and a half
+
+I also realized at this point that although the Arduino Due is a lot faster than the Arduino Mega, the fact that it runs mostly 3.3v instead of 5v is a dealbreaker for me, so I am going to switch it on my BOM, however since it has exactly the same pin locations and footprint, I can leave the CAD and circuit designs intact and drop in the Mega on my real project.
+
+
+
+Time for Firmware.
+
+#### Firmware
+
+
 
 **Total time spent: 4h**
