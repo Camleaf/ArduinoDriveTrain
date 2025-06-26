@@ -160,8 +160,8 @@ Unfortunately given that the BTS7960 isn't built in to Fritzing, I had to look f
 
 Also, I couldn't find the models of battery packs I am planning on using, so I just put placeholder 18650s in their place, seeing as this circuit wasn't going to be run anyways
 
-<img src="./Wiring/Circuit diagram_bb.png" width="450">
-<img src="./Wiring/Circuit diagram_schem.png" width="450">
+<img src="./Wiring/Car diagram_bb.png" width="450">
+<img src="./Wiring/Car diagram_schem.png" width="450">
 
 The wiring went mostly without a hitch, and I connected everything and then verified the connections to make sure nothing was off. The only thing that bothers me is the fact that on the built-in Arduino Due module, the usb-b mini ports and the SPI pins weren't added into the module, so I couldn't plug those pins in. However, I left a note to remind myself and any potential readers, so It should work just fine.
 
@@ -176,7 +176,7 @@ I'm getting the feeling that the planning stages (before I get the grant) of thi
 
 #### Cad
 
-I started the measurements for my controller around an arduino mega, because it is a good size to start to model something ergonomic around
+I started the measurements for my controller around an arduino mega, because it is a good size to start to model something ergonomic around, and I happen to have one laying around, so there is no point buying something new.
 
 <img src="./JournalImg/Controller_Cad_Start.png" width="300">
 <img src="./JournalImg/Controller_port.png" width="300">
@@ -191,3 +191,11 @@ The CAD for the controller was extremely simple compared to that of the car. I'm
 
 
 #### Circuit
+
+The circuits for this were relatively easy compared to the car, as all I had to do was connect SPI pins to the NRF24l01 module, and connect the analog pins and power to the joysticks.
+
+
+<img src="./Wiring/Controller diagram_bb.png" width="300">
+<img src="./Wiring/Controller diagram_schem.png" width="300
+">
+
