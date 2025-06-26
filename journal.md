@@ -4,11 +4,11 @@ author: "Camleaf"
 description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 15h**
+**Total Time Spent: 24h**
 
 The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
-# June 8th: Did some research on ordered parts
+# June 22th: Did some research on ordered parts
 
 I had a version of this project on the backburner last year, and It came to a grinding halt as I had no budget and I realized the parts I had didn't fit my goal.
 Since then the entire project has been lost somewhere on an old hard drive (probably in my shed), and I thought that now would be a great time to pick it back up!
@@ -28,7 +28,7 @@ It is very preliminary so things probably will change
 
 **Total time spent: 2h**
 
-# June 9th
+# June 23th
 
 #### Budget update info
 At the start, I updated my budget, as I realized that the 150 budget was in USD instead of CAD. I also moved a lot of my items to AliExpress because it is a lot cheaper
@@ -82,7 +82,7 @@ It has a few issues, for example the possibility of friction between the base an
 
 **Total time spent: 6h**
 
-# June 10th: Cadding away
+# June 24th: Cadding away
 A tentative 3D print of the base (pictured left), made me realize that I forgot a connection mechanism between the two halves of the base ( two halves because my 3D printer isn't big enough), so I went and added it in CAD (pictured right)
 
 <img src="./JournalImg/BodyTestPrint.png" width="300">
@@ -125,7 +125,7 @@ It should slide in to the main section with no screws (tolerance of 0.1mm).
 <br> ^ It's  summer, alright, don't judge the insane hours
 
 
-# June 11th: Working on the raised section
+# June 25th: Working on the raised section
 
 I found a severe issue with the raised section: It doesn't fix the issue I had:
 
@@ -146,3 +146,30 @@ I still think that full field-centric holonomic motion for this bot would be rea
 
 With that, however, I believe that this part of the CAD process done. Now I can move on to circuit diagrams and programming.
 
+ I will need to go back to 3D modelling for the controller, but I think I'll take this one step at a time
+
+
+### Circuits
+
+The process of creating the circuit for what I need shouldn't be too difficult. All I need to do should be:
+
+- Boot up Fritzing ( The circuit software I'm using, I will ignore the PCB section as I am not creating any)
+- Add the Arduino due, NRF24L01 (which I'm using for radio), 3 BTS7960 motor drivers, 3 servos, and 3 dc motors (I can use generic ones here because the inputs are the same)
+- Connect all the wires to their appropraite handlers: 5v + arduino handles logic, 7.4V supply handles power
+
+
+Unfortunately given that the BTS7960 isn't built in to Fritzing, I had to look for a user-made one, and the only one I could find couldn't be run in the Fritzing circuit simulator, so I'm going to have to wait to test this circuit once I have the pieces.
+
+Also, I couldn't find the models of battery packs I am planning on using, so I just put placeholder 18650s in their place, seeing as this circuit wasn't going to be run anyways
+
+<img src="./CAD/Fritzing/Circuit diagram_bb.png" width="450">
+<img src="./CAD/Fritzing/Circuit diagram_schem.png" width="450">
+
+The wiring went mostly without a hitch, and I connected everything and then verified the connections to make sure nothign was off. The only thing that bothers me is the fact that on the built-in Arduino Due module, the usb-b mini ports and the SPI pins weren't added into the module, so I couldn't plug those pins in. However, I left a note to remind myself and any potential readers, so It should work just fine.
+
+I honestly wish that something went wrong during this process, or that is was more complicated, because I think I spent the last four to five hours mindlessly connecting everything.
+
+I think that tomorrow I should start working on the controller.
+I'm getting the feeling that the planning stages (before I get the grant) of this project will be over a lot faster than I'm expecting because of the insane hours I'm putting in.
+
+**Total time spent: 9h**
