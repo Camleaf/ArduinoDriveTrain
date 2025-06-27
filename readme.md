@@ -3,6 +3,8 @@
 
 # Three wheel Crab drivetrain
 
+**Note to any reviewers**: I have a bit of a time crunch on my hands, so I am submitting this project without 100% complete firmware (everything else is done), and will finish that when parts are on the way
+
 **Description:** This robot can move in any direction without turning, using the Crab drive motion. It is controlled with the attached controller joysticks with the left joystick for arcade movement relative to the heading, and the right joystick to control the heading.
 
 **Motivation:** I did this project because I wanted a challenge, also because I am looking towards joining an FRC team for the first time next year, and I wanted to make a drivetrain inspired by some robots I saw there. This project ended up taking less time than I anticipated (mostly because I was putting in 7-8 hour days on it), but it was still very fun.
