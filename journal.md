@@ -4,7 +4,7 @@ author: "Camleaf"
 description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 35h**
+**Total Time Spent: 37h**
 
 The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
@@ -231,4 +231,19 @@ I started to build some transmitter code based off of my diagrams, my wiring pla
 Also, I built the basic Crab drive math without turning (2nd geometry diagram above) into my code, and I believe that is good enough to submit. At the moment turning is proving to be a big challenge, so once I am finished that there will be a lot of updates to write.
 
 
-**Total time spent: 3h**
+<br>
+
+Now that a submittable draft of the code is done, I will keep working on improving the firmware while my project gets (hopefully) approved and parts shipped out.
+
+I created these diagrams to show how I will get the path of the robot, and then the path of it's wheels, in order
+
+<img src="./JournalImg/Math_find_global centre.png" width="1000">
+
+From here, I can use that global rotation circle to plot the movements of each individual wheel to try to distinguish a pattern
+
+<img src="./JournalImg/Math_find_wheel_movement.png" width="1000">
+<img src="./JournalImg/Math_find_individual_wheels.png" width="1000">
+
+So it turns out that each wheel rotates on its own circle around the same centre point, meaning that if I can isolate the modules and their circles, I can determine the angle needed for each of the modules and the speed of the motors.
+
+**Total time spent: 5h**
