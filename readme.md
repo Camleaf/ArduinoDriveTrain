@@ -49,6 +49,8 @@ I have a lot of parts at home and 3D printing capabilities so this list is just 
 
 
 Total: $160.17 USD
+
+With tax: $180.9921 USD
 ^ This may be well below because of Aliexpress first time shopper discounts,
 but I used the full prices even though
 
