@@ -6,7 +6,6 @@
 #include <printf.h>
 #include <RF24_config.h>
 #include <Servo.h>
-
 using namespace std;
 
 #define MessageID 45949
@@ -14,10 +13,14 @@ using namespace std;
 
 
 
-
-int ServoPins[3] = {2,3,4};
+const int ServoPins[3] = {2,3,4};
 //       Servos    1 2 3
-int ServoOffsets[3] = {0, 120, 240};
+const int ServoOffsets[3] = {0, 120, 240};
+
+const uint8_t L_EN[3] = {30,32,34};
+const uint8_t L_PWM[3] = {40,42,44};
+const uint8_t R_EN[3] = {31,33,35};
+const uint8_t R_PWM[3] = {41,43,45};
 
 int MotorSpeeds[3] = {0,0,0};
 int ServoPositions[3] = {0, 0, 0};
@@ -63,6 +66,10 @@ void setup() {
   // attach servos to pins
   for (int i; i < 3; i++){
     ServoObjects[i].attach(ServoPins[i]);
+    pinMode(L_EN[i],  OUTPUT); 
+    pinMode(R_EN[i],  OUTPUT); 
+    pinMode(L_PWM[i],  OUTPUT); 
+    pinMode(R_PWM[i],  OUTPUT);
   }
 
   // end pinmodes
@@ -101,8 +108,23 @@ void loop() {
   for (int i = 0; i < 3; i++){
     
     int rotation = ServoPositions[i] - ServoOffsets[i];
-    // Still need to do the 180 degree thing
-    ServoObjects[i].write(0);
+    int rotation = rotation % 360;
+    
+    if (rotation < 180){
+      analogWrite(L_PWM[i], 0);
+      digitalWrite(L_EN[i], LOW);
+      digitalWrite(R_EN[i], HIGH);
+      analogWrite(R_PWM[i], MotorSpeeds[i]);
+      ServoObjects[i].write(rotation);
+
+
+    } else {
+      analogWrite(R_PWM[i], 0);
+      digitalWrite(R_EN[i], LOW);
+      analogWrite(L_PWM[i], MotorSpeeds[i]);
+      digitalWrite(L_EN[i], HIGH);
+      ServoObjects[i].write(rotation - 180);
+    }
   }
   
 }

@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <printf.h>
 #include <RF24_config.h>
+#include <BTS7960.h>
 using namespace std;
 
 #define LeftJoyX A0
