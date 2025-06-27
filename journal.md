@@ -4,7 +4,7 @@ author: "Camleaf"
 description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 26.5h**
+**Total Time Spent: 32h**
 
 The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
@@ -199,20 +199,27 @@ The circuits for this were relatively easy compared to the car, as all I had to 
 
 
 <img src="./Wiring/Controller diagram_bb.png" width="300">
-<img src="./Wiring/Controller diagram_schem.png" width="300
-">
+<img src="./Wiring/Controller diagram_schem.png" width="300">
 
 
 After this, I wrote the Readme.md and compiled all the external items I need into a BOM.csv, which took about an hour and a half
 
 I also realized at this point that although the Arduino Due is a lot faster than the Arduino Mega, the fact that it runs mostly 3.3v instead of 5v is a dealbreaker for me, so I am going to switch it on my BOM, however since it has exactly the same pin locations and footprint, I can leave the CAD and circuit designs intact and drop in the Mega on my real project.
 
+#### Drive control
+
+I realized that now that I'm done wiring and CAD for everything else, I needed (and still need to) figure out the maths behind the drive mode
+So far I realized that I will need the rotation and force from both the joysticks, so I drew up a diagram for that, but am still coming up with the car drive stuff.
+
+<img src="./JournalImg/Math_joystick.png" width="1000">
+
+Using the input only from the left joystick (movement + force), and NOT the right joystick (rotation), I came up for this movement chart for when the robot is not turning.
 
 
-Time for Firmware.
+<img src="./JournalImg/Math_left_stick_only.png" width="1000">
 
-#### Firmware
+Now that the case for only left joystick use has been solved, it is time to look at the more general case of the right joystick being moved. The first step in this process is to find the rotation point that the robot is to rotate around, likely outside of the car. This diagram details the process of finding that point with regard to the data given by Joystick data gathering.
 
+<img src="./JournalImg/Math_centre_of_rot.png" width="1000">
 
-
-**Total time spent: 4h**
+**Total time spent: 8h**
