@@ -1,0 +1,91 @@
+#include <Arduino.h>
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+#include <stdio.h>
+#include <printf.h>
+#include <RF24_config.h>
+
+using namespace std;
+
+#define MessageID 45949
+#define ServoPins {2,3,4}
+#define ServoOffsets {0, 120, 240}
+//       Servos    1 2 3
+// put function declarations here:
+
+int MotorSpeeds[3] = {0,0,0};
+int ServoPositions[3] = {90,90,90};
+
+typedef struct{
+  int16_t Identifier;
+  float LeftJoyForce; // How far from center the joystick is
+  float LeftJoyOrient; // The angle relative to the centre of the joystick
+  float RightJoyForce;
+  float RightJoyOrient;
+}__attribute__((packed)) DataStruct;
+DataStruct dataPackage;
+
+
+void getModuleCrab(int (&Mos)[3], int (&Svp)[3]);
+
+
+RF24 radio(48,49); // CE, CSN
+//
+
+const byte address[5] = "0110";
+
+void setup() {
+  printf_begin();
+  pinMode(48,  OUTPUT); 
+  pinMode(49, OUTPUT);
+  // end pinmodes
+
+  Serial.begin(9600); 
+  if (!radio.begin()) { Serial.println(F("radio hardware not responding!"));}
+  radio.openReadingPipe(0, address);
+  radio.setPALevel(-18);
+  radio.startListening();
+
+  // Make an LED or something to check if Radio is transmitting
+}
+
+void loop() {
+  while (!radio.available()); // If the radio drops out repeatedly i'll add the code for a restart then
+  radio.read( &dataPackage, sizeof(DataStruct) );
+
+  if (dataPackage.Identifier != MessageID){ // If unauthorized message
+    return;
+  };
+
+  if (dataPackage.RightJoyForce == 0){ // if not turning, I want the simpler crab drive math to work
+    getModuleCrab(MotorSpeeds, ServoPositions);
+  } else {
+    // I want it to reset until I get snake working
+    // Once the complicated snake math is working, it goes here
+    getModuleDefaults(MotorSpeeds, ServoPositions);
+  }
+
+  //I will need to figure out how to get the servo positioning to work
+  
+}
+
+
+
+void getModuleCrab(int (&Mos)[3], int(&Svp)[3]) {
+   // crab drive math; point and go
+  for (int i = 0; i<3; i++){
+    Mos[i] = dataPackage.LeftJoyForce;
+    Svp[i] = dataPackage.LeftJoyOrient;
+  }
+}
+
+
+
+void getModuleDefaults(int (&Mos)[3], int(&Svp)[3]) {
+  // Resets motor speeds and all to defaults
+  for (int i = 0; i<3; i++){
+    Mos[i] = 0;
+    Svp[i] = 90;
+  }
+}
