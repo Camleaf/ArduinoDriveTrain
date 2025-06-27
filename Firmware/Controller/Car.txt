@@ -5,18 +5,30 @@
 #include <stdio.h>
 #include <printf.h>
 #include <RF24_config.h>
+#include <Servo.h>
 
 using namespace std;
 
 #define MessageID 45949
-#define ServoPins {2,3,4}
-#define ServoOffsets {0, 120, 240}
+
+
+
+
+
+int ServoPins[3] = {2,3,4};
 //       Servos    1 2 3
-// put function declarations here:
+int ServoOffsets[3] = {0, 120, 240};
 
 int MotorSpeeds[3] = {0,0,0};
-int ServoPositions[3] = {90,90,90};
+int ServoPositions[3] = {0, 0, 0};
+Servo ServoObjects[3];
 
+
+// Still need to do motor stuff
+
+
+
+// This is how data is recieved from the controller
 typedef struct{
   int16_t Identifier;
   float LeftJoyForce; // How far from center the joystick is
@@ -26,19 +38,33 @@ typedef struct{
 }__attribute__((packed)) DataStruct;
 DataStruct dataPackage;
 
-
+// Define functions
 void getModuleCrab(int (&Mos)[3], int (&Svp)[3]);
 
 
-RF24 radio(48,49); // CE, CSN
-//
 
+
+
+
+
+
+// Define radio
+RF24 radio(48,49); // CE, CSN
 const byte address[5] = "0110";
+
+
 
 void setup() {
   printf_begin();
   pinMode(48,  OUTPUT); 
   pinMode(49, OUTPUT);
+
+
+  // attach servos to pins
+  for (int i; i < 3; i++){
+    ServoObjects[i].attach(ServoPins[i]);
+  }
+
   // end pinmodes
 
   Serial.begin(9600); 
@@ -49,6 +75,11 @@ void setup() {
 
   // Make an LED or something to check if Radio is transmitting
 }
+
+
+
+
+
 
 void loop() {
   while (!radio.available()); // If the radio drops out repeatedly i'll add the code for a restart then
@@ -67,18 +98,32 @@ void loop() {
   }
 
   //I will need to figure out how to get the servo positioning to work
+  for (int i = 0; i < 3; i++){
+    
+    int rotation = ServoPositions[i] - ServoOffsets[i];
+    // Still need to do the 180 degree thing
+    ServoObjects[i].write(0);
+  }
   
 }
+
+
+
+
+
 
 
 
 void getModuleCrab(int (&Mos)[3], int(&Svp)[3]) {
    // crab drive math; point and go
   for (int i = 0; i<3; i++){
-    Mos[i] = dataPackage.LeftJoyForce;
-    Svp[i] = dataPackage.LeftJoyOrient;
+    Mos[i] = round(dataPackage.LeftJoyForce); // still on the 512 scale
+    Svp[i] = round(dataPackage.LeftJoyOrient* (180.0 / PI));
   }
 }
+
+
+
 
 
 
@@ -86,6 +131,6 @@ void getModuleDefaults(int (&Mos)[3], int(&Svp)[3]) {
   // Resets motor speeds and all to defaults
   for (int i = 0; i<3; i++){
     Mos[i] = 0;
-    Svp[i] = 90;
+    Svp[i] = ServoOffsets[i];
   }
 }
