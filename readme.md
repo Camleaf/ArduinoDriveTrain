@@ -50,3 +50,6 @@ Total: $129.92 USD
 
 With tax: $146.8096 USD
 
+This is with Aliexpress First time shopper welcome sales, as I have never shopped there before.
+The previous total was ~$180. Good thing those exist so I could get under the limit.
+
