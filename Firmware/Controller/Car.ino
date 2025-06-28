@@ -117,19 +117,19 @@ void loop() {
     
     int rotation = ServoPositions[i] - ServoOffsets[i];
     rotation = (rotation % 360);
-    
+    int ms = round(MotorSpeeds[i]/pushDistance*256);
     if (rotation < 180){
       analogWrite(L_PWM[i], 0);
       digitalWrite(L_EN[i], LOW);
       digitalWrite(R_EN[i], HIGH);
-      analogWrite(R_PWM[i], MotorSpeeds[i]);
+      analogWrite(R_PWM[i], ms);
       ServoObjects[i].write(rotation);
 
 
     } else {
       analogWrite(R_PWM[i], 0);
       digitalWrite(R_EN[i], LOW);
-      analogWrite(L_PWM[i], MotorSpeeds[i]);
+      analogWrite(L_PWM[i], ms);
       digitalWrite(L_EN[i], HIGH);
       ServoObjects[i].write(rotation - 180);
     }
