@@ -21,7 +21,7 @@
 <img src="./JournalImg/Car_CAD_expanded.png" width="500">
 <img src="./Wiring/Car diagram_bb.png" width="350">
 <img src="./Wiring/Car diagram_schem.png" width="350">
-
+![alt text](image.png)
 
 ### Controller Design Images
 
