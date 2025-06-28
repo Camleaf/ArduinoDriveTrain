@@ -21,6 +21,9 @@ const uint8_t L_EN[3] = {30,32,34};
 const uint8_t L_PWM[3] = {40,42,44};
 const uint8_t R_EN[3] = {31,33,35};
 const uint8_t R_PWM[3] = {41,43,45};
+const uint8_t pushDistance = 512;
+const float moduleDistance = 188.375;
+
 
 int MotorSpeeds[3] = {0,0,0};
 int ServoPositions[3] = {0, 0, 0};
@@ -41,9 +44,16 @@ typedef struct{
 }__attribute__((packed)) DataStruct;
 DataStruct dataPackage;
 
+
+typedef struct Point {
+    float x, y;
+};
+
+Point lineIntersect(Point A, Point B, Point C, Point D);
+
 // Define functions
 void getModuleCrab(int (&Mos)[3], int (&Svp)[3]);
-
+void getModuleSnake(int (&Mos)[3], int(&svp)[3]);
 
 
 
@@ -145,7 +155,41 @@ void getModuleCrab(int (&Mos)[3], int(&Svp)[3]) {
 }
 
 
+void getModuleSnake(int (&Mos)[3], int(&svp)[3]){
+   // Find rotation centre
+    // Define vars
+   int L_Orient = dataPackage.LeftJoyOrient;
+   int R_Orient = dataPackage.RightJoyOrient + L_Orient; // rotate R_orient with L_orient
+   int L_Force = dataPackage.LeftJoyForce;
+   int R_Force = dataPackage.RightJoyForce;
+   
+   // Find the length of the vector
+   int Vector_Hyp = L_Force - R_Force;
+   
+   Point Centre{0,0};
+   // Find chord midpoint first
+   // Don't even need to find chord first this vector is the midpoint
+   float Vector_X = Vector_Hyp * cos(R_Orient);
+   float Vector_Y = Vector_Hyp * sin(R_Orient);
+   Point Midpoint{Vector_X, Vector_Y};
+   // find any point on perpendicular bisector
+   float Bisector_Slope = -(Midpoint.x - Centre.x)/(Midpoint.y-Centre.y);
+   float Bisector_X = 513;
+   float Bisector_Y_Intercept = Midpoint.y-(Midpoint.x * Bisector_Slope);
+   float Bisector_Y = Bisector_Slope * Bisector_X + Bisector_Y_Intercept;
+   Point ArbitraryBisectorSlope{Bisector_X, Bisector_Y};
 
+
+
+   float Vector_X = Vector_Hyp * cos(L_Orient);
+   float Vector_Y = Vector_Hyp * sin(L_Orient);
+   Point AbitraryCenterLine{Vector_X,Vector_Y};
+
+   Point Global_Rot_Center = lineIntersect(Centre, AbitraryCenterLine, Midpoint, ArbitraryBisectorSlope);
+   
+
+
+}
 
 
 
@@ -155,4 +199,26 @@ void getModuleDefaults(int (&Mos)[3], int(&Svp)[3]) {
     Mos[i] = 0;
     Svp[i] = ServoOffsets[i];
   }
+}
+
+Point lineIntersect(Point A, Point B, Point C, Point D){
+    float a1 = B.y - A.y;
+    float b1 = A.x - B.x;
+    float c1 = a1 * A.x + b1 * A.y;
+
+    // Line CD represented as a2x + b2y = c2
+    float a2 = D.y - C.y;
+    float b2 = C.x - D.x;
+    float c2 = a2 * C.x + b2 * C.y;
+
+    float determinant = a1 * b2 - a2 * b1;
+
+    if (determinant == 0) {
+        // Lines are parallel
+        return Point{0,0};
+    } else {
+        float x = (b2 * c1 - b1 * c2) / determinant;
+        float y = (a1 * c2 - a2 * c1) / determinant;
+        return Point{x, y};
+    }
 }
