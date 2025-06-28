@@ -4,7 +4,7 @@ author: "Camleaf"
 description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 40h**
+**Total Time Spent: 42h**
 
 The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
@@ -251,6 +251,17 @@ So it turns out that each wheel rotates on its own circle around the same centre
 # June 28th: Wayy more coding
 I finished up the maths for Snake Drive (turning with crab) and am now working on coding it. Also I realized that I missed some stuff on the CAD so I will go back and fix that once am done.
 
+I fixed all my snake drive code and it now uses the math shown above. Unfortunately until I build the robot I can't test or calibrate the firmware but I think it is a good starting point.
+
+Time to fix the CAD
+
+I realized that the wheels on the car are very exposed when they rotate outside of underneath the car, So my plan is to simply make a barrier that shields the outside of the motors without interfering too much with function.
+
+<img src="./JournalImg/Wheel_exposed.png" width="300">
+
+To make the shield, I created an expanded triangle around the base cut the corners a little, split it into one repeating piece (That I will need to print three times, because it is too big for my printer), and then added some screw holes to the base for attachment.
+
+<img src="./JournalImg/Wheel_Shielded.png" width="300">
 
 
-**Total time spent:2**
+**Total time spent:5**
