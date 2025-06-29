@@ -4,7 +4,7 @@ author: "Camleaf"
 description: "A Crab drive rc car, fully 3D printed frame"
 created_at: "2025-06-22"
 ---
-**Total Time Spent: 46h**
+**Total Time Spent: 35.5h**
 
 The initial goal for this project is a full tri-wheel car with holonomic motion. The goal is to make two drive modes: Ocelot and Crab. Ocelot is field-centric, and has full holonomic motion, however will likely require magnometer/gyro configuration and is considerably complex. Crab is car-centric, meaning it skips any magnometer/gyro configuration, and it can be a nice fallback if those components fail. It can still move in any direction, however motion is not fully holonomic.
 
@@ -24,7 +24,7 @@ A N20 500rpm geared motor
 At the moment no photos because they are all still online, however this research did take me some time. 
 It is very preliminary so things probably will change
 
-**Total time spent: 2h**
+**Total time spent: 1.5h**
 
 # June 23th
 
@@ -78,7 +78,7 @@ Ok, after a few hours, I came up with this preliminary design:
 
 It has a few issues, for example the possibility of friction between the base and the module, and the fact that if this module does a full spin, then the wires will get caught. I think that these issues can be resolved in time, but for tonight I've done a lot of work and am tired.
 
-**Total time spent: 6h**
+**Total time spent: 4h**
 
 # June 24th: Cadding away
 A tentative 3D print of the base (pictured left), made me realize that I forgot a connection mechanism between the two halves of the base ( two halves because my 3D printer isn't big enough), so I went and added it in CAD (pictured right)
@@ -119,7 +119,7 @@ The raised section on the right side is a separate component for 3D printing pur
 It should slide in to the main section with no screws (tolerance of 0.1mm).
 
 
-**Total time spent: 7h**
+**Total time spent: 6h**
 <br> ^ It's  summer, alright, don't judge the insane hours
 
 
@@ -173,7 +173,7 @@ I honestly wish that something went wrong during this process, or that is was mo
 I think that tomorrow I should start working on the controller.
 I'm getting the feeling that the planning stages (before I get the grant) of this project will be over a lot faster than I'm expecting because of the insane hours I'm putting in.
 
-**Total time spent: 9h**
+**Total time spent: 7h**
 
 # June 26th: The controller
 
@@ -246,7 +246,7 @@ From here, I can use that global rotation circle to plot the movements of each i
 
 So it turns out that each wheel rotates on its own circle around the same centre point, meaning that if I can isolate the modules and their circles, I can determine the angle needed for each of the modules and the speed of the motors.
 
-**Total time spent: 8h**
+**Total time spent: 5h**
 
 # June 28th: Wayy more coding
 I finished up the maths for Snake Drive (turning with crab) and am now working on coding it. Also I realized that I missed some stuff on the CAD so I will go back and fix that once am done.
@@ -269,4 +269,4 @@ To make the shield, I created an expanded triangle around the base cut the corne
 5pm update: just spent around an hour figuring out a bunch of libraries to make the code a lot simpler, so that hopefully it will work first try. I also updated my BOM to be a lot cleaner and nicer.
 
 
-**Total time spent:6h**
+**Total time spent:4h**
