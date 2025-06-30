@@ -21,7 +21,8 @@
 <img src="./JournalImg/Car_CAD_expanded.png" width="500">
 <img src="./Wiring/Car diagram_bb.png" width="350">
 <img src="./Wiring/Car diagram_schem.png" width="350">
-![alt text](image.png)
+
+NOTE: The motors at the bottom of the design will get their power through wires from the motor drivers which are routed via the two big holes in each of the layers of design. Since to motors only move 90 degrees in either direction from their starting point in this design, the wires will never get tangled.
 
 ### Controller Design Images
 
